@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "Net5DesktopSample": {
+      "commandName": "Project",
+      "nativeDebugging": true
+    }
+  }
+}
