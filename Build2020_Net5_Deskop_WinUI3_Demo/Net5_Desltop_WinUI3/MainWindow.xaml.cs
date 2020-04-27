@@ -20,14 +20,13 @@ namespace WinUISamples
         async void OnBrowse(object sender, RoutedEventArgs e)
         {
             var folderPicker = new FolderPicker();
-            //Make folderPicker work in Win32
-            //Window w = this;
-            //var myHandle = ((IWindowNative)w).WindowHandle;
 
-            //IInitializeWithWindow initWindow = (IInitializeWithWindow)(object)folderPicker;
-            //initWindow.Initialize(myHandle);
+            //Make folder Picker work in Win32
+            IntPtr windowHandle = (App.Current as App).WindowHandle;
 
-            //folderPicker.SuggestedStartLocation = Windows.Storage.Pickers.PickerLocationId.Desktop;
+            IInitializeWithWindow initWindow = (IInitializeWithWindow)(object)folderPicker;
+            initWindow.Initialize(windowHandle);
+
             folderPicker.FileTypeFilter.Add("*");
 
             var folder = await folderPicker.PickSingleFolderAsync();
@@ -41,13 +40,13 @@ namespace WinUISamples
             }
         }
 
-        //[ComImport]
-        //[Guid("3E68D4BD-7135-4D10-8018-9FB6D9F33FA1")]
-        //[InterfaceType(ComInterfaceType.InterfaceIsIUnknown)]
-        //public interface IInitializeWithWindow
-        //{
-        //    void Initialize(IntPtr hwnd);
-        //}
+        [ComImport]
+        [Guid("3E68D4BD-7135-4D10-8018-9FB6D9F33FA1")]
+        [InterfaceType(ComInterfaceType.InterfaceIsIUnknown)]
+        public interface IInitializeWithWindow
+        {
+            void Initialize(IntPtr hwnd);
+        }
 
 
         void OnRun(object sender, RoutedEventArgs e)
@@ -108,6 +107,11 @@ namespace WinUISamples
             cdTextBlock.Text = description.ToString();
             contentDialog.XamlRoot = gridRoot.XamlRoot;
             await contentDialog.ShowAsync();
+        }
+
+        async void OnSettings(object sender, RoutedEventArgs e)
+        {
+            splitView.IsPaneOpen = !splitView.IsPaneOpen;
         }
     }
 }

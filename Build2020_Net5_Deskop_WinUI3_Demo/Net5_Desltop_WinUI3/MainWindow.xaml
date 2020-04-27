@@ -7,47 +7,77 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
-    <Grid x:Name="gridRoot">
-        <Grid.RowDefinitions>
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="*" />
-            <RowDefinition Height="Auto" />
-        </Grid.RowDefinitions>
-        <Grid Background="LightGray"  ColumnSpacing="10" Padding="10">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*" />
-                <ColumnDefinition Width="Auto" />
-                <ColumnDefinition Width="Auto" />
-                <ColumnDefinition Width="Auto" />
-                <ColumnDefinition Width="Auto" />
-            </Grid.ColumnDefinitions>
+    <SplitView x:Name="splitView" 
+               PaneBackground="{ThemeResource SystemControlBackgroundChromeMediumLowBrush}"
+               IsPaneOpen="False" 
+               PanePlacement="Right"
+               OpenPaneLength="384" 
+               CompactPaneLength="96" 
+               DisplayMode="Overlay">
+        <SplitView.Pane>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <TextBlock Text="PANE CONTENT" x:Name="PaneHeader" Margin="60,12,0,0" Style="{StaticResource BaseTextBlockStyle}"/>
+                <StackPanel Orientation="Horizontal" Grid.Row="2" Margin="14,24,0,24" >
+                    <SymbolIcon Symbol="Setting" />
+                    <TextBlock Text="Settings" Margin="24,0,0,0" VerticalAlignment="Center"/>
+                </StackPanel>
+            </Grid>
+        </SplitView.Pane>
 
-            <TextBox x:Name="textBox" Grid.Column="0"  PlaceholderText="Folder to inspect" Text=""  />
-            <Button Grid.Column="1" Content="Browse" Click="OnBrowse" />
-            <NumberBox x:Name="numberBox" Grid.Column="2" Value="0" 
+        <Grid x:Name="gridRoot">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <Grid Background="LightGray"  ColumnSpacing="10" Padding="10">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+
+                <TextBox x:Name="textBox" Grid.Column="0"  PlaceholderText="Folder to inspect" Text=""  />
+                <Button Grid.Column="1" Content="Browse" Click="OnBrowse" />
+                <NumberBox x:Name="numberBox" Grid.Column="2" Value="0" 
                        SpinButtonPlacementMode="Compact" SmallChange="1"/>
-            <Button Grid.Column="3" Content="Run" Click="OnRun" />
-            <Button Grid.Column="4" Content="?" Click="OnAbout" />
-        </Grid>
+                <Button Grid.Column="3" Content="Run" Click="OnRun" />
+                <Button Grid.Column="4" Content="?" Click="OnAbout" />
+                <Button  Grid.Column="5" Click="OnSettings" >
+                    <TextBlock FontFamily="Segoe MDL2 Assets" FontSize="14" Text="&#xE713;"/>
+                </Button>
+                
+                
 
-        <ScrollViewer Grid.Row="1">
-            <RichEditBox x:Name="richEditBox" TextWrapping="Wrap" Padding="10,0,10,0" />
-        </ScrollViewer>
+            </Grid>
 
-        <Border Grid.Row="2" BorderThickness="0,1,0,0" Background="LightGray"  BorderBrush="Black">
-            <TextBlock x:Name="statusTextBlock" HorizontalTextAlignment="Right" Text="Status: No evaluated" Padding="5" />
-        </Border>
+            <ScrollViewer Grid.Row="1">
+                <RichEditBox x:Name="richEditBox" TextWrapping="Wrap" Padding="10,0,10,0" />
+            </ScrollViewer>
 
-        <ContentDialog
+            <Border Grid.Row="2" BorderThickness="0,1,0,0" Background="LightGray"  BorderBrush="Black">
+                <TextBlock x:Name="statusTextBlock" HorizontalTextAlignment="Right" Text="Status: No evaluated" Padding="5" />
+            </Border>
+
+            <ContentDialog
             x:Name="contentDialog"
             Title="Loaded modules"
             CloseButtonText="OK">
 
-            <ScrollViewer>
-                <TextBlock x:Name="cdTextBlock" TextWrapping="Wrap" />
-            </ScrollViewer>
+                <ScrollViewer>
+                    <TextBlock x:Name="cdTextBlock" TextWrapping="Wrap" />
+                </ScrollViewer>
 
-        </ContentDialog>
+            </ContentDialog>
 
-    </Grid>
+        </Grid>
+    </SplitView>
 </Window>
