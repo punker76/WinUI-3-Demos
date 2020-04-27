@@ -30,12 +30,6 @@ namespace WinUISamples
             base.OnLaunched(args);
 
             var window = new MainWindow();
-            // QI for IWindowNative succeeds
-            var windowAsIUnknown = Marshal.GetIUnknownForObject(window);
-            Guid windowNativeGuid = new Guid("EECDBF0E-BAE9-4CB6-A68E-9598E1CB57BB");
-            IntPtr iwindowNative;
-            Marshal.QueryInterface(windowAsIUnknown, ref windowNativeGuid, out iwindowNative);
-
             WindowWrapper windowWrapper = WindowWrapper.FromAbi(window.ThisPtr);
             windowHandle = windowWrapper.WindowHandle;
 
