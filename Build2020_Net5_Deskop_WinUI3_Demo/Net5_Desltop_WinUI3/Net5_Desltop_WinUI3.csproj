@@ -14,8 +14,14 @@
   <ItemGroup>
     <PackageReference Include="Microsoft.Windows.CsWinRT" Version="1.0.200418.1" />
     <PackageReference Include="Microsoft.VCRTForwarders.140" Version="1.0.5" />
-    <PackageReference Include="Microsoft.WinUI" Version="3.0.0-preview1.200419.0-CI" />
+    <PackageReference Include="Microsoft.WinUI" Version="3.0.0-preview1.200419.0-CI">
+        <ExcludeAssets>compile;</ExcludeAssets>
+    </PackageReference>
     <Manifest Include="$(ApplicationManifest)" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\WinUIProjection\WinUIProjection.csproj" />
   </ItemGroup>
 
   <ItemGroup>
