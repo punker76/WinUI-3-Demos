@@ -33,7 +33,7 @@ namespace WinUISamples
             WindowWrapper windowWrapper = WindowWrapper.FromAbi(window.ThisPtr);
             windowHandle = windowWrapper.WindowHandle;
 
-            window.Title = "Disk Usage(.NET Desktop WinUI 3)";
+            window.Title = "Folder Inspector (.NET Desktop WinUI 3)";
             window.Activate();
         }
 

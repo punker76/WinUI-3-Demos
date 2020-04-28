@@ -12,9 +12,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.Windows.CsWinRT" Version="1.0.200418.1" />
-    <PackageReference Include="Microsoft.VCRTForwarders.140" Version="1.0.5" />
-    <PackageReference Include="Microsoft.WinUI" Version="3.0.0-preview1.200419.0-CI" />
+    <PackageReference Include="Microsoft.Windows.CsWinRT" Version="1.0.200427.5" />
+    <PackageReference Include="Microsoft.VCRTForwarders.140" Version="1.0.6" />
+    <PackageReference Include="Microsoft.WinUI" Version="3.0.0-preview1.200427.7-CI" />
     <Manifest Include="$(ApplicationManifest)" />
   </ItemGroup>
 
