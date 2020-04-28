@@ -13,10 +13,10 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <PackageReference Include="Microsoft.Windows.CsWinRT" Version="1.0.200418.1" GeneratePathProperty="true"/>
+        <PackageReference Include="Microsoft.Windows.CsWinRT" Version="1.0.200428.2" GeneratePathProperty="true" />
 
         <!-- Exclude compile and build time assets so we don't think we're building a real WinUI App -->
-        <PackageReference Include="Microsoft.WinUI" Version="3.0.0-preview1.200419.0-CI" GeneratePathProperty="true">
+        <PackageReference Include="Microsoft.WinUI" Version="3.0.0-preview1.200428.2-CI" GeneratePathProperty="true">
             <ExcludeAssets>compile; build</ExcludeAssets>
         </PackageReference>
 
