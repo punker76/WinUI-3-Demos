@@ -18,12 +18,15 @@ namespace WinUISamples
         const uint WM_SETICON = 0x0080;
         const int SWP_SHOWWINDOW = 0x0040;
 
-
-       
+              
         public static void MoveWindow(IntPtr hwnd)
         {
             SetWindowPos(hwnd, 0, 0, 0, 0, 0, SWP_NOZORDER | SWP_NOSIZE | SWP_SHOWWINDOW);
         }
+
+        [DllImport("user32.dll")]
+        [return: MarshalAs(UnmanagedType.Bool)]
+        public static extern bool IsWindow(IntPtr hWnd);
 
 
         [DllImport("user32.dll")]

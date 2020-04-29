@@ -174,12 +174,10 @@ namespace WinUISamples
         {
             IntPtr hwnd = (App.Current as App).WindowHandle;
 
-            bool isWindow = IsWindow(hwnd);
+            bool isWindow = Win32Helpers.IsWindow(hwnd);
             Win32Helpers.MoveWindow(hwnd);
         }
         
-        [DllImport("user32.dll")]
-        [return: MarshalAs(UnmanagedType.Bool)]
-        static extern bool IsWindow(IntPtr hWnd);
+        
     }
 }
