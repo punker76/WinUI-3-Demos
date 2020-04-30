@@ -12,7 +12,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.Windows.CsWinRT" Version="1.0.200428.2" />
+    <!--<PackageReference Include="Microsoft.Windows.CsWinRT" Version="1.0.200428.2" />-->
     <PackageReference Include="Microsoft.VCRTForwarders.140" Version="1.0.6" />
     <PackageReference Include="Microsoft.WinUI" Version="3.0.0-preview1.200428.2-CI">
         <ExcludeAssets>compile;</ExcludeAssets>

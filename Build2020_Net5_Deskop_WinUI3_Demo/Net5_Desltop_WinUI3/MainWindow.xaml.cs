@@ -18,11 +18,7 @@ namespace WinUISamples
         {
             this.InitializeComponent();
             splitView.PaneOpened += OnPaneOpened;
-
-
         }
-
-
 
         private void OnPaneOpened(SplitView sender, object args)
         {
@@ -144,9 +140,6 @@ namespace WinUISamples
             TeachingTips(true);
         }
 
-
-
-
         void TeachingTips(bool status)
         {
             statusTextBlockTeachingTip.IsOpen = status;
@@ -177,7 +170,5 @@ namespace WinUISamples
             bool isWindow = Win32Helpers.IsWindow(hwnd);
             Win32Helpers.MoveWindow(hwnd);
         }
-        
-        
     }
 }

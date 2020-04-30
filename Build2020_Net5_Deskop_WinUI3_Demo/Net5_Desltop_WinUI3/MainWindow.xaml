@@ -77,8 +77,7 @@
                 <NumberBox x:Name="numberBox" Grid.Column="2" Value="0" SpinButtonPlacementMode="Compact" SmallChange="1"/>
                 <Button x:Name="runBtn" Grid.Column="3" Content="Run" Click="OnRun" />
                 <Button Grid.Column="4" Content="?" Click="OnHelp" />
-                <Button  Grid.Column="5" Click="OnSettings" >
-                    <TextBlock FontFamily="Segoe MDL2 Assets" FontSize="14" Text="&#xE713;"/>
+                <Button  Grid.Column="5" Click="OnSettings" Content="&#xE713;" FontFamily="Segoe MDL2 Assets" >
                 </Button>
             </Grid>
 
