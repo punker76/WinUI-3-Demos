@@ -1,0 +1,12 @@
+namespace DemoBuildCpp
+{
+  /* [default_interface]
+	 runtimeclass App : Microsoft.UI.Xaml.Application
+	 {
+		App();
+		void OnLaunched(Microsoft.UI.Xaml.LaunchActivatedEventArgs args);
+		void OnSuspending(IInspectable obj, Windows.ApplicationModel.SuspendingEventArgs args);
+		Int64 WindowHandle();
+
+	 }*/
+}
