@@ -2,9 +2,11 @@
 page_type: sample
 languages:
 - csharp
+- cpp
 products:
 - dotnet
-description: "Add 150 character max description"
+- WinUI
+description: "These are some samples to demonstrate the usage of WinUI 3"
 urlFragment: "update-this-to-unique-url-stub"
 ---
 
@@ -35,19 +37,39 @@ Outline the file contents of the repository. It helps users navigate the codebas
 
 ## Prerequisites
 
-Outline the required components and tools that a user might need to have on their machine in order to run the sample. This can be anything from frameworks, SDKs, OS versions or IDE releases.
 
-## Setup
+Configure your development environment (for detailed instructions see [Configure your dev environment](#configure-your-dev-environment)), install the WinUI 3.0 Preview 1 VSIX from the following link, and try out the WinUI 3 project templates.
 
-Explain how to prepare the sample once the user clones or downloads the repository. The section should outline every step necessary to install dependencies and set up any settings (for example, API keys and output folders).
+<a href="https://aka.ms/winui3/previewdownload">Download the WinUI 3.0 Preview 1 VSIX</a>
 
-## Running the sample
 
-Outline step-by-step instructions to execute the sample and see its output. Include steps for executing the sample from the IDE, starting specific services in the Azure portal or anything related to the overall launch of the code.
+### Configure your dev environment
 
-## Key concepts
+Ensure that your development computer has Windows 10, version 1803 (build 17134), or a later version installed. WinUI 3 for desktop apps requires 1803 or a later OS version.
 
-Provide users with more context on the tools and services used in the sample. Explain some of the code that is being used and how services interact with each other.
+Install Visual Studio 2019, version 16.7 Preview 1. You can download this from  [Visual Studio Preview](https://visualstudio.microsoft.com/vs/preview).
+
+You must include the following workloads when installing the Visual Studio Preview:
+
+- .NET Desktop Development
+- Universal Windows Platform development
+
+To build C++ apps you must also include the following workloads:
+
+- Desktop development with C++
+- The *C++ (v142) Universal Windows Platform tools* optional component for the Universal Windows Platform workload
+
+### Visual Studio project templates
+
+To access the WinUI 3.0 Preview 1 and project templates, go to **https://aka.ms/winui3/previewdownload**
+
+Download the Visual Studio Extension (`.vsix`) to add the WinUI project templates and NuGget package to Visual Studio 2019.
+
+For directions on how to add the `.vsix` to Visual Studio, see [Finding and Using Visual Studio Extensions](https://docs.microsoft.com/visualstudio/ide/finding-and-using-visual-studio-extensions?view=vs-2019#install-without-using-the-manage-extensions-dialog-box).
+
+After installing the `.vsix` extension you can create a new WinUI 3.0 project by searching for "WinUI" and selecting one of the available C# or C++ templates.
+
+
 
 ## Contributing
 
