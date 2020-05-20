@@ -7,12 +7,12 @@
   IgnorableNamespaces="uap rescap">
 
   <Identity
-    Name="db550cc0-f999-4091-82cc-99fcadeee144"
+    Name="b7a6e6dd-d628-4033-9090-1cf84ab41ea7"
     Publisher="CN=miguelrb"
     Version="1.0.0.0" />
 
   <Properties>
-    <DisplayName>DemoBuildCpp (Package)</DisplayName>
+    <DisplayName>DemoBuildCs (Package)</DisplayName>
     <PublisherDisplayName>miguelrb</PublisherDisplayName>
     <Logo>Images\StoreLogo.png</Logo>
   </Properties>
@@ -31,8 +31,8 @@
       Executable="$targetnametoken$.exe"
       EntryPoint="$targetentrypoint$">
       <uap:VisualElements
-        DisplayName="DemoBuildCpp (Package)"
-        Description="DemoBuildCpp (Package)"
+        DisplayName="DemoBuildCs (Package)"
+        Description="DemoBuildCs (Package)"
         BackgroundColor="transparent"
         Square150x150Logo="Images\Square150x150Logo.png"
         Square44x44Logo="Images\Square44x44Logo.png">

@@ -19,6 +19,7 @@ namespace winrt::DemoBuildCpp::implementation
         void OnHelp(Windows::Foundation::IInspectable const& sender, Microsoft::UI::Xaml::RoutedEventArgs const& e);
         void OnSettings(Windows::Foundation::IInspectable const& sender, Microsoft::UI::Xaml::RoutedEventArgs const& e);
         void OnPaneOpened(Microsoft::UI::Xaml::Controls::SplitView const& sender, Windows::Foundation::IInspectable const& args);
+        void PickFolder();
         void OnBrowse(Windows::Foundation::IInspectable const& sender, Microsoft::UI::Xaml::RoutedEventArgs const& e);
         void OnWindowMinimize(Windows::Foundation::IInspectable const& sender, Microsoft::UI::Xaml::RoutedEventArgs const& e);
         void OnWindowMaximize(Windows::Foundation::IInspectable const& sender, Microsoft::UI::Xaml::RoutedEventArgs const& e);

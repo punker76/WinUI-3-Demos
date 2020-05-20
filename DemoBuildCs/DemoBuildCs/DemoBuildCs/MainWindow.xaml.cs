@@ -1,22 +1,22 @@
-﻿using Microsoft.UI.Xaml.Documents;
-using Microsoft.UI.Xaml;
-using Microsoft.UI.Xaml.Controls;
-using System;
+﻿using System;
 using System.Diagnostics; //Proccess
 using System.IO; //File access
 using System.Linq;
 using System.Reflection;
 using System.Runtime.InteropServices;
 using System.Text;
+
 using Windows.Storage.Pickers;
 using WinRT;
-using System.Numerics;
+
 using Microsoft.UI.Xaml.Input;
-using Windows.Foundation;
+using Microsoft.UI.Xaml.Documents;
+using Microsoft.UI.Xaml;
+using Microsoft.UI.Xaml.Controls;
+
 
 namespace DemoBuildCs
 {
-
     public sealed partial class MainWindow : Window
     {
         public MainWindow()
@@ -39,23 +39,13 @@ namespace DemoBuildCs
             IntPtr windowHandle = (App.Current as App).WindowHandle;
             InitializeWithWindowWrapper initializeWithWindowWrapper = InitializeWithWindowWrapper.FromAbi(folderPicker.ThisPtr);
             initializeWithWindowWrapper.Initialize(windowHandle);
-
-           
             folderPicker.FileTypeFilter.Add("*");
 
-            //Bug: It crashes after closing the folder Picker
             var folder = await folderPicker.PickSingleFolderAsync();
-            if (folder != null)
-            {
-                textBox.Text = folder.Path;
-            }
-            else
-            {
-                textBox.Text = string.Empty;
-            }
+            textBox.Text = folder != null ? folder.Path : string.Empty;
         }
 
-
+        #region IInitializeWithWindow
         [ComImport]
         [Guid("3E68D4BD-7135-4D10-8018-9FB6D9F33FA1")]
         [InterfaceType(ComInterfaceType.InterfaceIsIUnknown)]
@@ -122,6 +112,7 @@ namespace DemoBuildCs
                 Marshal.ThrowExceptionForHR(_obj.Vftbl.Initialize_0(ThisPtr, windowHandle));
             }
         }
+        #endregion
 
         void OnRun(object sender, RoutedEventArgs e)
         {
@@ -230,23 +221,23 @@ namespace DemoBuildCs
         {
 
             IntPtr hwnd = (App.Current as App).WindowHandle;
-            Win32Helpers.SetWindowToBottom(hwnd);
+            Win32Window.SetWindowToBottom(hwnd);
         }
         void OnWindowMinimize(object sender, RoutedEventArgs e)
         {
             IntPtr hwnd = (App.Current as App).WindowHandle;
-            Win32Helpers.Minimize(hwnd);
+            Win32Window.Minimize(hwnd);
         }
 
         void OnWindowMaximize(object sender, RoutedEventArgs e)
         {
             IntPtr hwnd = (App.Current as App).WindowHandle;
-            Win32Helpers.Maximize(hwnd);
+            Win32Window.Maximize(hwnd);
         }
         void OnWindowNormalize(object sender, RoutedEventArgs e)
         {
             IntPtr hwnd = (App.Current as App).WindowHandle;
-            Win32Helpers.Normalize(hwnd);
+            Win32Window.Normalize(hwnd);
         }
 
     }

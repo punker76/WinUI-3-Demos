@@ -23,22 +23,18 @@
   </ItemGroup>
   <PropertyGroup>
     <WapProjPath Condition="'$(WapProjPath)'==''">$(MSBuildExtensionsPath)\Microsoft\DesktopBridge\</WapProjPath>
+    <DebuggerType>NativeOnly</DebuggerType>
+    <BackgroundTaskDebugEngines>NativeOnly</BackgroundTaskDebugEngines>
   </PropertyGroup>
   <Import Project="$(WapProjPath)\Microsoft.DesktopBridge.props" />
   <PropertyGroup>
-    <ProjectGuid>ea34d324-478e-452e-8b03-db978adeb36a</ProjectGuid>
+    <ProjectGuid>48fea535-bf17-46a7-b5b5-228ac828353d</ProjectGuid>
     <TargetPlatformVersion>10.0.18362.0</TargetPlatformVersion>
-    <TargetPlatformMinVersion>10.0.18362.0</TargetPlatformMinVersion>
+    <TargetPlatformMinVersion>10.0.17763.0</TargetPlatformMinVersion>
     <DefaultLanguage>en-US</DefaultLanguage>
     <AppxPackageSigningEnabled>false</AppxPackageSigningEnabled>
-    <ApplicationProject>..\DemoBuildCs\DemoBuildCs.csproj</ApplicationProject>
-    <!-- Allows Nuget to restore packages for this project -->
-    <AssetTargetFallback>netcoreapp5.0</AssetTargetFallback>
-    <EntryPointProjectUniqueName>..\DemoBuildCs\DemoBuildCs.csproj</EntryPointProjectUniqueName>
+    <EntryPointProjectUniqueName>..\DemoBuildCpp\DemoBuildCpp.vcxproj</EntryPointProjectUniqueName>
   </PropertyGroup>
-  <ItemGroup>
-    <PackageReference Include="Microsoft.WinUI" Version="3.0.0-preview1.200505.5-CI" />
-  </ItemGroup>
   <ItemGroup>
     <AppxManifest Include="Package.appxmanifest">
       <SubType>Designer</SubType>
@@ -54,9 +50,15 @@
     <Content Include="Images\Wide310x150Logo.scale-200.png" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\DemoBuildCs\DemoBuildCs.csproj">
+    <ProjectReference Include="..\DemoBuildCpp\DemoBuildCpp.vcxproj">
       <SkipGetTargetFrameworkProperties>True</SkipGetTargetFrameworkProperties>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup>
+    <SDKReference Include="Microsoft.VCLibs.Desktop, Version=14.0" />
+    <!-- Needed for ucrtbased.dll when running a debug build. -->
+    <SDKReference Include="Microsoft.VCLibs, Version=14.0" Condition="'$(Configuration)' == 'Debug'" />
+  </ItemGroup>
   <Import Project="$(WapProjPath)\Microsoft.DesktopBridge.targets" />
+  <Import Project="build\Microsoft.WinUI.AppX.targets" />
 </Project>

@@ -23,17 +23,16 @@
   </ItemGroup>
   <PropertyGroup>
     <WapProjPath Condition="'$(WapProjPath)'==''">$(MSBuildExtensionsPath)\Microsoft\DesktopBridge\</WapProjPath>
-    <DebuggerType>NativeOnly</DebuggerType>
-    <BackgroundTaskDebugEngines>NativeOnly</BackgroundTaskDebugEngines>
+    <PathToXAMLWinRTImplementations>DemoBuildCs\</PathToXAMLWinRTImplementations>
   </PropertyGroup>
   <Import Project="$(WapProjPath)\Microsoft.DesktopBridge.props" />
   <PropertyGroup>
-    <ProjectGuid>653c097c-90d3-48bb-80f4-0824af8f63ec</ProjectGuid>
+    <ProjectGuid>89c0e8b0-478a-4ce5-8287-c8b840d7ccad</ProjectGuid>
     <TargetPlatformVersion>10.0.18362.0</TargetPlatformVersion>
     <TargetPlatformMinVersion>10.0.17763.0</TargetPlatformMinVersion>
     <DefaultLanguage>en-US</DefaultLanguage>
     <AppxPackageSigningEnabled>false</AppxPackageSigningEnabled>
-    <EntryPointProjectUniqueName>..\DemoBuildCpp\DemoBuildCpp.vcxproj</EntryPointProjectUniqueName>
+    <EntryPointProjectUniqueName>..\DemoBuildCs\DemoBuildCs.csproj</EntryPointProjectUniqueName>
   </PropertyGroup>
   <ItemGroup>
     <AppxManifest Include="Package.appxmanifest">
@@ -50,7 +49,7 @@
     <Content Include="Images\Wide310x150Logo.scale-200.png" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\DemoBuildCpp\DemoBuildCpp.vcxproj">
+    <ProjectReference Include="..\DemoBuildCs\DemoBuildCs.csproj">
       <SkipGetTargetFrameworkProperties>True</SkipGetTargetFrameworkProperties>
     </ProjectReference>
   </ItemGroup>

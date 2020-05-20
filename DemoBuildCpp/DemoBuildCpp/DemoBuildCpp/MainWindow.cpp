@@ -16,6 +16,7 @@ using namespace Microsoft::UI::Xaml;
 using namespace Microsoft::UI::Xaml::Documents;
 using namespace Microsoft::UI::Xaml::Controls;
 
+
 namespace winrt::DemoBuildCpp::implementation
 {
 	MainWindow::MainWindow()
@@ -41,6 +42,8 @@ void winrt::DemoBuildCpp::implementation::MainWindow::OnThemeRadioButtonChecked(
 		}
 	}
 }
+
+
 
 void winrt::DemoBuildCpp::implementation::MainWindow::OnRun(IInspectable const& sender, RoutedEventArgs const& e)
 {
@@ -98,6 +101,8 @@ void winrt::DemoBuildCpp::implementation::MainWindow::ListDirectories(std::strin
 	}
 }
 
+
+
 void winrt::DemoBuildCpp::implementation::MainWindow::OnHelp(IInspectable const& sender, RoutedEventArgs const& e)
 {
 	teachingTip().IsOpen(true);
@@ -132,8 +137,34 @@ void winrt::DemoBuildCpp::implementation::MainWindow::OnPaneOpened(SplitView con
 	}
 }
 
+void winrt::DemoBuildCpp::implementation::MainWindow::PickFolder()
+{
+	winrt::Windows::Storage::Pickers::FolderPicker picker;
+	HWND hwnd = GetActiveWindow();
+
+	const auto initializeWithWindow = picker.as<IInitializeWithWindow>();
+	winrt::check_hresult(initializeWithWindow->Initialize(hwnd));
+
+	const auto task = picker.PickSingleFolderAsync();
+	task.Completed([](const IAsyncOperation<winrt::Windows::Storage::StorageFolder>& result, AsyncStatus const status) mutable
+	{
+		const auto storageFolder = result.get();
+		if ((status == AsyncStatus::Completed) && storageFolder)
+		{
+			winrt::hstring path = storageFolder.Path();
+
+		}
+		else
+		{
+
+		}
+	});
+}
+
 void winrt::DemoBuildCpp::implementation::MainWindow::OnBrowse(IInspectable const& sender, RoutedEventArgs const& e)
 {
+	//PickFolder();
+
 	HRESULT hr = CoInitializeEx(NULL, COINIT_APARTMENTTHREADED | COINIT_DISABLE_OLE1DDE);
 	if (SUCCEEDED(hr))
 	{
@@ -215,6 +246,7 @@ void winrt::DemoBuildCpp::implementation::MainWindow::OnSendToBottom(IInspectabl
 
 }
 
+
 void winrt::DemoBuildCpp::implementation::MainWindow::OnAbout(IInspectable const& sender, RoutedEventArgs const& e)
 {
 	splitView().IsPaneOpen(false);
@@ -226,6 +258,7 @@ void winrt::DemoBuildCpp::implementation::MainWindow::OnAbout(IInspectable const
 	contentDialog().XamlRoot() = gridRoot().XamlRoot();
 	contentDialog().ShowAsync();
 }
+
 
 std::string winrt::DemoBuildCpp::implementation::MainWindow::PrintProcessNameAndID(DWORD processID)
 {
@@ -266,6 +299,7 @@ std::string winrt::DemoBuildCpp::implementation::MainWindow::PrintProcessNameAnd
 		return description;
 	}
 }
+
 
 void winrt::DemoBuildCpp::implementation::MainWindow::OnKeyDownTextBox(IInspectable const& sender, Microsoft::UI::Xaml::Input::KeyRoutedEventArgs const& e)
 {
