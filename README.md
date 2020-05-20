@@ -20,32 +20,13 @@ Guidance on onboarding samples to docs.microsoft.com/samples: https://review.doc
 Taxonomies for products and languages: https://review.docs.microsoft.com/new-hope/information-architecture/metadata/taxonomies?branch=master
 -->
 
-Give a short description for your sample here. What does it do and why is it important?
+These are some samples to demonstrate the usage of WinUI 3
 
-## Contents
-
-Outline the file contents of the repository. It helps users navigate the codebase, build configuration and any related assets.
-
-| File/folder       | Description                                |
-|-------------------|--------------------------------------------|
-| `src`             | Sample source code.                        |
-| `.gitignore`      | Define what to ignore at commit time.      |
-| `CHANGELOG.md`    | List of changes to the sample.             |
-| `CONTRIBUTING.md` | Guidelines for contributing to the sample. |
-| `README.md`       | This README file.                          |
-| `LICENSE`         | The license for the sample.                |
-
-## Prerequisites
-
-
-Configure your development environment (for detailed instructions see [Configure your dev environment](#configure-your-dev-environment)), install the WinUI 3.0 Preview 1 VSIX from the following link, and try out the WinUI 3 project templates.
-
-<a href="https://aka.ms/winui3/previewdownload">Download the WinUI 3.0 Preview 1 VSIX</a>
-
-
-### Configure your dev environment
+## Configure your dev environment
 
 Ensure that your development computer has Windows 10, version 1803 (build 17134), or a later version installed. WinUI 3 for desktop apps requires 1803 or a later OS version.
+
+### Install Visual Studio 2019, version 16.7 Preview 1
 
 Install Visual Studio 2019, version 16.7 Preview 1. You can download this from  [Visual Studio Preview](https://visualstudio.microsoft.com/vs/preview).
 
@@ -59,6 +40,13 @@ To build C++ apps you must also include the following workloads:
 - Desktop development with C++
 - The *C++ (v142) Universal Windows Platform tools* optional component for the Universal Windows Platform workload
 
+### Install .NET 5 Preview 4
+
+Install both x64 and x86 versions of .NET 5 Preview 4:
+
+- x64: [https://aka.ms/dotnet/net5/preview4/Sdk/dotnet-sdk-win-x64.exe](https://aka.ms/dotnet/net5/preview4/Sdk/dotnet-sdk-win-x64.exe)
+- x86: [https://aka.ms/dotnet/net5/preview4/Sdk/dotnet-sdk-win-x86.exe](https://aka.ms/dotnet/net5/preview4/Sdk/dotnet-sdk-win-x86.exe)
+
 ### Visual Studio project templates
 
 To access the WinUI 3.0 Preview 1 and project templates, go to **https://aka.ms/winui3/previewdownload**
@@ -67,9 +55,7 @@ Download the Visual Studio Extension (`.vsix`) to add the WinUI project template
 
 For directions on how to add the `.vsix` to Visual Studio, see [Finding and Using Visual Studio Extensions](https://docs.microsoft.com/visualstudio/ide/finding-and-using-visual-studio-extensions?view=vs-2019#install-without-using-the-manage-extensions-dialog-box).
 
-After installing the `.vsix` extension you can create a new WinUI 3.0 project by searching for "WinUI" and selecting one of the available C# or C++ templates.
-
-
+After installing the `.vsix` extension you can load these samples.
 
 ## Contributing
 
