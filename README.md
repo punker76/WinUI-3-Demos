@@ -26,7 +26,7 @@ These are some samples to demonstrate the usage of WinUI 3
 
 Ensure that your development computer has Windows 10, version 1803 (build 17134), or a later version installed. WinUI 3 for desktop apps requires 1803 or a later OS version.
 
-### Install Visual Studio 2019, version 16.7 Preview 1
+### 1) Install Visual Studio 2019, version 16.7 Preview 1
 
 Install Visual Studio 2019, version 16.7 Preview 1. You can download this from  [Visual Studio Preview](https://visualstudio.microsoft.com/vs/preview).
 
@@ -40,22 +40,18 @@ To build C++ apps you must also include the following workloads:
 - Desktop development with C++
 - The *C++ (v142) Universal Windows Platform tools* optional component for the Universal Windows Platform workload
 
-### Install .NET 5 Preview 4
+### 2) Install .NET 5 Preview 4
 
 Install both x64 and x86 versions of .NET 5 Preview 4:
 
 - x64: [https://aka.ms/dotnet/net5/preview4/Sdk/dotnet-sdk-win-x64.exe](https://aka.ms/dotnet/net5/preview4/Sdk/dotnet-sdk-win-x64.exe)
 - x86: [https://aka.ms/dotnet/net5/preview4/Sdk/dotnet-sdk-win-x86.exe](https://aka.ms/dotnet/net5/preview4/Sdk/dotnet-sdk-win-x86.exe)
 
-### Visual Studio project templates
+### 3) Install WinUI 3 Preview 1 Visual Studio project templates
 
 To access the WinUI 3.0 Preview 1 and project templates, go to **https://aka.ms/winui3/previewdownload**
 
-Download the Visual Studio Extension (`.vsix`) to add the WinUI project templates and NuGget package to Visual Studio 2019.
-
-For directions on how to add the `.vsix` to Visual Studio, see [Finding and Using Visual Studio Extensions](https://docs.microsoft.com/visualstudio/ide/finding-and-using-visual-studio-extensions?view=vs-2019#install-without-using-the-manage-extensions-dialog-box).
-
-After installing the `.vsix` extension you can load these samples.
+Download the Visual Studio Extension (`.vsix`) to add the WinUI project templates and NuGget package to Visual Studio 2019 and install it. After installing the `.vsix` extension you can load these samples.
 
 ## Contributing
 
