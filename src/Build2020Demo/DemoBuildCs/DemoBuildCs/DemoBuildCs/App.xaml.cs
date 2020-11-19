@@ -32,9 +32,9 @@ namespace DemoBuildCs
             m_window.Title = "Folder Inspector (.NET 5 Desktop WinUI 3)";
             m_window.Activate();
 
-            // Window doesn't have Height and Weight properties in WInUI 3 Desktop yet,
-            // to set the Width and Height you can use the Win32 API SetWindowPos.
-            // However, you should have to take care of the DPI scale factor
+            // The Window object doesn't have Width and Height properties in WInUI 3 Desktop yet.
+            // To set the Width and Height, you can use the Win32 API SetWindowPos.
+            // Note, you should apply the DPI scale factor if you are thinking of dpi instead of pixels.
             SetWindowSize(m_windowHandle, 800, 600);
         }
 
