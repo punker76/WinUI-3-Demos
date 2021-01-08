@@ -1,0 +1,15 @@
+namespace ContosoAirlinePOSCpp
+{
+    runtimeclass Booking : Microsoft.UI.Xaml.Data.INotifyPropertyChanged
+    {
+        Booking();
+        String BookingId;
+        String RegisteredMobileNumber;
+        String RegisteredEmailAddress;
+        String DateOfBooking;
+        Int32 FlightId;
+        Int32 Passengers;
+        String TransactionId;
+        Single InvoiceAmount;
+    }
+}

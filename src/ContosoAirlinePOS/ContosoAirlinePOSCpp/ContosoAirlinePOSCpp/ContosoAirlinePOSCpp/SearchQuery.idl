@@ -1,0 +1,20 @@
+import "Airport.idl";
+import "Flight.idl";
+namespace ContosoAirlinePOSCpp
+{
+	runtimeclass SearchQuery
+	{
+		SearchQuery();
+		Airport Source;
+		Airport Destination;
+		Windows.Foundation.IReference<Windows.Foundation.DateTime> TravelDate;
+		Windows.Foundation.IReference<Windows.Foundation.DateTime> ReturnDate;
+		String TravelClass;
+		Windows.Foundation.IReference<Boolean> RoundTrip;
+		Windows.Foundation.IReference<Boolean> NonStop;
+		Int32 AdultsCount;
+		Int32 ChildrenCount;
+		Int32 FlightId;
+		Flight SelectedFlight;
+	}
+}

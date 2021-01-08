@@ -1,0 +1,228 @@
+﻿<Page
+    x:Class="ContosoAirlinePOSCs.Pages.FlightReservationPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:ContosoAirlinePOSCs.IndividualPagesXAML"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:controls="using:ContosoAirlinePOSCs.Controls"
+    xmlns:converters="using:ContosoAirlinePOSCs.Converters"
+    mc:Ignorable="d"
+    x:DefaultBindMode="OneWay"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Page.Resources>
+        <converters:DateToStringConverter x:Key="DateToStringConverter"/>
+        <converters:TimeSpanToStringConverter x:Key="TimeSpanToStringConverter"/>
+    </Page.Resources>
+
+    <ScrollViewer HorizontalScrollMode="Disabled">
+        <Grid Background="{ThemeResource SystemChromeMediumLowColor}" Padding="24" RowSpacing="10" ColumnSpacing="16" DataContext="{x:Bind ViewModel}">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="3*" />
+                <ColumnDefinition Width="1*" />
+            </Grid.ColumnDefinitions>
+            <Grid Padding="16" Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" RowSpacing="28" ColumnSpacing="22">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Border BorderThickness="0,0,0,1" BorderBrush="Gray" Grid.ColumnSpan="3">
+                    <TextBlock Text="Traveller Details" 
+                       FontSize="20"
+                       FontWeight="SemiBold"
+                       Foreground="#FF0073CF"
+                       Padding="0,0,0,16"/>
+                </Border>
+                <!-- Passenger Form User Control -->
+                <ListView Grid.Row="1" Grid.ColumnSpan="3" ItemsSource="{x:Bind ViewModel.Passengers}" SelectionMode="None">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <controls:PassengerFormControl DataContext="{Binding}"/>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                    <ListView.ItemContainerStyle>
+                        <Style TargetType="ListViewItem">
+                            <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+                        </Style>
+                    </ListView.ItemContainerStyle>
+                </ListView>
+                <!-- EOS -->
+                <TextBox Header="Email Address" 
+                 PlaceholderText="name@domain.com"
+                 Grid.Row="2"
+                 Grid.Column="0"/>
+                <Grid Grid.Row="2" Grid.Column="1">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <ComboBox Header="Mobile Number" Grid.Column="0" CornerRadius="0">
+                        <ComboBoxItem Content="USA" IsSelected="True" />
+                    </ComboBox>
+                    <TextBox PlaceholderText="+1 (123) 456-7890"
+                     Grid.Column="1" Height="21"
+                     VerticalAlignment="Bottom"
+                         CornerRadius="0"/>
+                </Grid>
+                <TextBox Header="Frequent Flyer" 
+                         PlaceholderText="Enter No."
+                         Grid.Row="2"
+                         Grid.Column="2"/>
+                <CheckBox Content="Receive alerts about this trip. Message and data rates may apply."
+                  Grid.Row="3"
+                  Grid.ColumnSpan="3"/>
+            </Grid>
+            <Button Width="200" Height="40" CornerRadius="0" Grid.Row="3" Background="#FF0073CF" VerticalAlignment="Top" HorizontalAlignment="Right" x:Name="PaymentButton">
+                <TextBlock FontSize="14" FontWeight="SemiBold" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White" Text="PROCEED TO PAYMENT" />
+            </Button>
+            <Grid Grid.Column="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <Grid HorizontalAlignment="Stretch">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+                    <Grid HorizontalAlignment="Stretch" Background="WhiteSmoke" Padding="12" ColumnSpacing="8">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <TextBlock FontFamily="Segoe MDL2 Assets" FontSize="38" Foreground="#FF0073CF" FontWeight="Light" Grid.RowSpan="2" VerticalAlignment="Bottom" Text="&#xEC61;" />
+                        <TextBlock FontWeight="Medium" Foreground="#FF0073CF" FontSize="18" TextWrapping="Wrap" Grid.Column="1" Text="One Way Flight" />
+                        <TextBlock FontWeight="Light" FontSize="12" Foreground="Black" Grid.Row="1" Grid.Column="1">
+                            <Run Text="{x:Bind ViewModel.QueryObject.AdultsCount}"/>
+                            <Run Text="Ticket(s), "/>
+                            <Run Text="{x:Bind ViewModel.QueryObject.AdultsCount}"/>
+                            <Run Text="Adult(s) "/>
+                        </TextBlock>
+                    </Grid>
+                    <Grid Grid.Row="1" Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" Padding="12,24,12,12" RowSpacing="12">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <Grid Grid.Row="0" HorizontalAlignment="Stretch">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="5*" />
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="5*" />
+                            </Grid.ColumnDefinitions>
+                            <Grid Grid.Column="0" HorizontalAlignment="Left">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="3*" />
+                                    <ColumnDefinition Width="2*" />
+                                </Grid.ColumnDefinitions>
+                                <TextBlock FontSize="14" FontWeight="Medium" TextWrapping="Wrap">
+                                    <Run Text="{x:Bind ViewModel.QueryObject.Source.CityName}"/>
+                                </TextBlock>
+                                <TextBlock FontSize="14" FontWeight="Light" Foreground="Gray" TextWrapping="Wrap" Margin="2,0,0,0" HorizontalAlignment="Left" Grid.Column="1">
+                                    <Run Text="("/>
+                                    <Run Text="{x:Bind ViewModel.QueryObject.Source.AirportCode}"/>
+                                    <Run Text=")"/>
+                                </TextBlock>
+                            </Grid>
+                            <TextBlock FontFamily="Segoe MDL2 Assets" FontSize="14" VerticalAlignment="Center" FontWeight="Light" Foreground="Gray" HorizontalAlignment="Center" Margin="8,0,8,0"  Text="&#xE709;" Grid.Column="1" />
+                            <Grid Grid.Column="2" HorizontalAlignment="Right">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="3*" />
+                                    <ColumnDefinition Width="2*" />
+                                </Grid.ColumnDefinitions>
+                                <TextBlock FontSize="14" FontWeight="Medium" TextWrapping="Wrap">
+                                    <Run Text="{x:Bind ViewModel.QueryObject.Destination.CityName}"/>
+                                </TextBlock>
+                                <TextBlock FontSize="14" FontWeight="Light" Foreground="Gray" TextWrapping="Wrap" Margin="2,0,0,0" HorizontalAlignment="Left" Grid.Column="1">
+                                    <Run Text="("/>
+                                    <Run Text="{x:Bind ViewModel.QueryObject.Destination.AirportCode}"/>
+                                    <Run Text=")"/>
+                                </TextBlock>
+                            </Grid>
+                        </Grid>
+                        <Grid Grid.Row="1" HorizontalAlignment="Left">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="1*" />
+                                <ColumnDefinition Width="2*" />
+                            </Grid.ColumnDefinitions>
+                            <Border BorderThickness="0,0,1,0" BorderBrush="Gray" Padding="0,0,8,0">
+                                <TextBlock FontSize="12" FontWeight="Light" Foreground="Gray" Text="{x:Bind ViewModel.SelectedFlight.Departure, Converter={StaticResource DateToStringConverter}, ConverterParameter='m'}" />
+                            </Border>
+                            <TextBlock FontSize="12" FontWeight="Light" Padding="8,0,0,0" Foreground="Gray" Grid.Column="1">
+                                <Run Text="{x:Bind ViewModel.SelectedFlight.Departure, Converter={StaticResource DateToStringConverter}, ConverterParameter='t'}"/>
+                                <Run Text=" - "/>
+                                <Run Text="{x:Bind ViewModel.SelectedFlight.Arrival, Converter={StaticResource DateToStringConverter}, ConverterParameter='t'}"/>
+                                <LineBreak/>
+                                <Run Text="{x:Bind ViewModel.SelectedFlight.Duration, Converter={StaticResource TimeSpanToStringConverter}}"/>
+                            </TextBlock>
+                        </Grid>
+                        <Border BorderThickness="0,0,0,1" BorderBrush="Gray" Grid.Row="2" HorizontalAlignment="Stretch" />
+                        <Grid Grid.Row="3" HorizontalAlignment="Stretch" BorderThickness="0,0,0,1" BorderBrush="Gray" RowSpacing="8" Padding="0,0,0,8">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
+                            <TextBlock FontSize="12" FontWeight="Light" Foreground="Gray" Grid.Row="0" Grid.Column="0">
+                                <Run Text="{x:Bind ViewModel.QueryObject.AdultsCount}"/>
+                                <Run Text="Adult(s) "/>
+                                <LineBreak/>
+                                <Run Text="{x:Bind ViewModel.QueryObject.ChildrenCount}"/>
+                                <Run Text="Child(ren)"/>
+                            </TextBlock>
+                            <StackPanel Orientation="Horizontal" Grid.Row="0" Grid.Column="1" HorizontalAlignment="Right">
+                                <TextBlock FontSize="12" FontWeight="Medium" Text="$ " />
+                                <TextBlock FontSize="12" FontWeight="Medium" Text="{x:Bind ViewModel.InvoiceAmount, Mode=OneWay}" />
+                            </StackPanel>
+                        </Grid>
+                        <Grid Grid.Row="4">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="Auto" />
+                            </Grid.ColumnDefinitions>
+                            <TextBlock FontSize="14" FontWeight="Light" Foreground="Gray" HorizontalAlignment="Right" Margin="0,0,4,0" Text="Total Amount: " />
+                            <StackPanel Orientation="Horizontal" Grid.Column="1" HorizontalAlignment="Right">
+                                <TextBlock FontSize="14" FontWeight="SemiBold" Text="$ " />
+                                <TextBlock FontSize="14" FontWeight="SemiBold" Text="{x:Bind ViewModel.InvoiceAmount, Mode=OneWay}" />
+                            </StackPanel>
+                        </Grid>
+                    </Grid>
+                </Grid>
+            </Grid>
+            <ContentDialog x:Name="PaymentConfirmationDialog" DefaultButton="Primary" PrimaryButtonText="Continue" CloseButtonText="Cancel">
+                <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Width="300">
+                    <TextBlock Text="Payment link has been sent to customer's entered mobile number and email address. Please press next once the payment is confirmed by the customer." TextWrapping="Wrap"/>
+                    <ProgressRing Margin="0,20,0,0" IsActive="True"/>
+                </StackPanel>
+            </ContentDialog>
+        </Grid>
+    </ScrollViewer>
+</Page>

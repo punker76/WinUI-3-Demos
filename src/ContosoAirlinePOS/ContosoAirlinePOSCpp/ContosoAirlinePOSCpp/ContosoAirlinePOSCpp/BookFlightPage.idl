@@ -1,0 +1,10 @@
+import "BookFlightViewModel.idl";
+namespace ContosoAirlinePOSCpp
+{
+    [default_interface]
+    runtimeclass BookFlightPage : Microsoft.UI.Xaml.Controls.Page
+    {
+        BookFlightPage();        
+        BookFlightViewModel ViewModel {get; };
+    }
+}

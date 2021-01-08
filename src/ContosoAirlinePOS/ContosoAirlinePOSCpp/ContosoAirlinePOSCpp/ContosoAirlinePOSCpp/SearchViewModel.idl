@@ -1,0 +1,11 @@
+import "BookingResult.idl";
+
+namespace ContosoAirlinePOSCpp
+{
+    [default_interface]
+    runtimeclass SearchViewModel : Microsoft.UI.Xaml.Data.INotifyPropertyChanged
+    {
+        SearchViewModel();
+        Windows.Foundation.Collections.IObservableVector<BookingResult> SearchResults{ get; };
+    }
+}

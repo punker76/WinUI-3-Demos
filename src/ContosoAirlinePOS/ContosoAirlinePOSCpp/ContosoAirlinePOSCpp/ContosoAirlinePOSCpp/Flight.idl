@@ -1,0 +1,23 @@
+import "Airport.idl";
+namespace ContosoAirlinePOSCpp
+{
+    runtimeclass Flight : Microsoft.UI.Xaml.Data.INotifyPropertyChanged
+    {
+        Flight();
+        String  FlightId;
+        String  FlightCode;
+        String  Departure;
+        String  Arrival;
+        String  Duration;
+        Int32   Hops;
+        Airport Source;
+        Airport Destination;
+        Double  TicketPrice;
+        String  FlightStatus;
+        String  Gate;
+        String  DepartureDate { get; };
+        String  ArrivalDate{ get; };
+        String  DepartureTime{ get; };
+        String  ArrivalTime{ get; };
+    }
+}

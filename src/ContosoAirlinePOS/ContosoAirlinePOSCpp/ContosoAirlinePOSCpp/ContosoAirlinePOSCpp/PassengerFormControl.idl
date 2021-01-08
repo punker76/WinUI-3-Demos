@@ -1,0 +1,8 @@
+namespace ContosoAirlinePOSCpp
+{
+    [default_interface]
+    runtimeclass PassengerFormControl : Microsoft.UI.Xaml.Controls.UserControl
+    {
+        PassengerFormControl();
+    }
+}

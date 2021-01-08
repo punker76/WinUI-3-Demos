@@ -1,0 +1,11 @@
+import "Flight.idl";
+namespace ContosoAirlinePOSCpp
+{
+	runtimeclass Schedule : Microsoft.UI.Xaml.Data.INotifyPropertyChanged
+	{
+		Schedule();
+		String Date;
+		Windows.Foundation.Collections.IObservableVector<Flight> FlightArrivals{ get; };
+		Windows.Foundation.Collections.IObservableVector<Flight> FlightDepts{ get; };
+	}
+}

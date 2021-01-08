@@ -1,0 +1,15 @@
+namespace ContosoAirlinePOSCpp
+{
+    runtimeclass Airport : Microsoft.UI.Xaml.Data.INotifyPropertyChanged
+    {
+        Airport();
+        String AirportCode;
+        String AirportName;
+        String CityName;
+        Single AverageFlyingHours;
+        Single Weight;
+        String AirportFullName{ get; };
+        String AirportSearchKey{ get; };
+    }
+}
+

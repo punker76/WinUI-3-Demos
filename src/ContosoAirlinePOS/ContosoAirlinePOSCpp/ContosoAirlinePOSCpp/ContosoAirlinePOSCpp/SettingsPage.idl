@@ -1,0 +1,10 @@
+namespace ContosoAirlinePOSCpp
+{
+    [default_interface]
+    runtimeclass SettingsPage : Microsoft.UI.Xaml.Controls.Page
+    {
+        SettingsPage();
+        Int32 SelectedIndex;
+        Windows.Foundation.Collections.IObservableVector<String> Themes{ get; };
+    }
+}

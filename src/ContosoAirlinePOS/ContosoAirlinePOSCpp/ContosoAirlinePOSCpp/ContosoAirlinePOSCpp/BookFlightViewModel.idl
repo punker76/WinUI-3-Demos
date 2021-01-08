@@ -1,0 +1,31 @@
+import "Airport.idl";
+import "Flight.idl";
+import "SearchResultViewModel.idl";
+
+namespace ContosoAirlinePOSCpp
+{
+    [default_interface]
+    runtimeclass BookFlightViewModel : Microsoft.UI.Xaml.Data.INotifyPropertyChanged
+    {
+        BookFlightViewModel();
+        Windows.Foundation.IReference<Windows.Foundation.DateTime>  ReturnDate;
+        Windows.Foundation.IReference<Windows.Foundation.DateTime>  DepartureDate;
+        String  FlyingToInput;
+        String  FlyingFromInput;
+        Airport SourceAirport;
+        Airport DestinationAirport;
+        Windows.Foundation.Collections.IObservableVector<Airport> SourceAirportSuggestions;
+        Windows.Foundation.Collections.IObservableVector<Airport> DestinationAirportSuggestions;
+        Int32   NoOfChildrenPassengers;
+        Int32   NoOfAdultPassengers;
+        Int32  SelectedStopPreference;
+        Int32  SelectedFlyingClass;
+        Windows.Foundation.IReference<Boolean> IsOneWay;
+        Windows.Foundation.IReference<Boolean> IsRoundTrip;
+        Windows.Foundation.Collections.IObservableVector<String> FlyingClasses;
+        Windows.Foundation.Collections.IObservableVector<String> NoOfStops;
+        Windows.Foundation.Collections.IObservableVector<Flight> UpcomingArrivals;
+        Windows.Foundation.Collections.IObservableVector<Flight> UpcomingDepartures;        
+        void SearchFlightCommand();        
+    }
+}

@@ -1,0 +1,13 @@
+namespace ContosoAirlinePOSCpp
+{
+    [default_interface]
+    runtimeclass LoginViewModel : Microsoft.UI.Xaml.Data.INotifyPropertyChanged
+    {
+        LoginViewModel();
+        String Username;
+        String Password;
+        String Message;
+
+        void LoginPressed();
+    }
+}

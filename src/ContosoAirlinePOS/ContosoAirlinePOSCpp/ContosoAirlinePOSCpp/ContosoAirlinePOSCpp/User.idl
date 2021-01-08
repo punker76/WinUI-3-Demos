@@ -1,0 +1,11 @@
+namespace ContosoAirlinePOSCpp
+{
+	runtimeclass User : Microsoft.UI.Xaml.Data.INotifyPropertyChanged
+	{
+		User();
+		String EmployeeId;
+		String Password;
+		String EmployeeName;
+		String ProfilePicture;
+	}
+}

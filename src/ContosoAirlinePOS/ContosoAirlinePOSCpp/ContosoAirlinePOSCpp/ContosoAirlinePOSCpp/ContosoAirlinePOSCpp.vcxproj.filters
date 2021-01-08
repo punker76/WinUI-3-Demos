@@ -1,0 +1,143 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="MainWindow.xaml" />
+    <Page Include="AppThemeDictionary.xaml" />
+    <Page Include="BoardingPassWindow.xaml" />
+    <Page Include="BookFlightPage.xaml" />
+    <Page Include="FlightReservationPage.xaml" />
+    <Page Include="LoginPage.xaml" />
+    <Page Include="PassengerFormControl.xaml" />
+    <Page Include="SearchPage.xaml" />
+    <Page Include="SearchResultPage.xaml" />
+    <Page Include="SettingsPage.xaml" />
+    <Page Include="ShellPage.xaml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Midl Include="App.idl" />
+    <Midl Include="MainWindow.idl" />
+    <Midl Include="Airport.idl" />
+    <Midl Include="BoardingPassWindow.idl" />
+    <Midl Include="BookFlightPage.idl" />
+    <Midl Include="BookFlightViewModel.idl" />
+    <Midl Include="Booking.idl" />
+    <Midl Include="BookingResult.idl" />
+    <Midl Include="Flight.idl" />
+    <Midl Include="FlightReservationPage.idl" />
+    <Midl Include="FlightReservationViewModel.idl" />
+    <Midl Include="FrequencyStats.idl" />
+    <Midl Include="LoginPage.idl" />
+    <Midl Include="LoginViewModel.idl" />
+    <Midl Include="MenuItem.idl" />
+    <Midl Include="PassengerFormControl.idl" />
+    <Midl Include="People.idl" />
+    <Midl Include="Schedule.idl" />
+    <Midl Include="SearchPage.idl" />
+    <Midl Include="SearchQuery.idl" />
+    <Midl Include="SearchResultPage.idl" />
+    <Midl Include="SearchResultViewModel.idl" />
+    <Midl Include="SearchViewModel.idl" />
+    <Midl Include="ShellViewModel.idl" />
+    <Midl Include="User.idl" />
+    <Midl Include="SettingsPage.idl" />
+    <Midl Include="ShellPage.idl" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="pch.cpp" />
+    <ClCompile Include="$(GeneratedFilesDir)module.g.cpp" />
+    <ClCompile Include="Airport.cpp" />
+    <ClCompile Include="BookFlightViewModel.cpp" />
+    <ClCompile Include="Booking.cpp" />
+    <ClCompile Include="BookingResult.cpp" />
+    <ClCompile Include="Flight.cpp" />
+    <ClCompile Include="FlightReservationViewModel.cpp" />
+    <ClCompile Include="FrequencyStats.cpp" />
+    <ClCompile Include="LoginViewModel.cpp" />
+    <ClCompile Include="MenuItem.cpp" />
+    <ClCompile Include="MockRepository.cpp" />
+    <ClCompile Include="Navigation.cpp" />
+    <ClCompile Include="People.cpp" />
+    <ClCompile Include="Schedule.cpp" />
+    <ClCompile Include="SearchQuery.cpp" />
+    <ClCompile Include="SearchResultViewModel.cpp" />
+    <ClCompile Include="SearchViewModel.cpp" />
+    <ClCompile Include="Services\BookingSearch\IFlightSearchService.cpp" />
+    <ClCompile Include="ShellViewModel.cpp" />
+    <ClCompile Include="User.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="pch.h" />
+    <ClInclude Include="Airport.h" />
+    <ClInclude Include="BookFlightViewModel.h" />
+    <ClInclude Include="Booking.h" />
+    <ClInclude Include="BookingResult.h" />
+    <ClInclude Include="Flight.h" />
+    <ClInclude Include="FlightReservationViewModel.h" />
+    <ClInclude Include="FrequencyStats.h" />
+    <ClInclude Include="INavigationService.h" />
+    <ClInclude Include="MenuItem.h" />
+    <ClInclude Include="resource.h" />
+    <ClInclude Include="SearchResultViewModel.h" />
+    <ClInclude Include="SearchViewModel.h" />
+    <ClInclude Include="Services\Authentication\IAuthenticationService.h" />
+    <ClInclude Include="Services\BookingSearch\IFlightSearchService.h" />
+    <ClInclude Include="Services\Dashboard\IDashboardService.h" />
+    <ClInclude Include="Services\FlightBooking\IFlightBookingService.h" />
+    <ClInclude Include="LoginViewModel.h" />
+    <ClInclude Include="MockRepository.h" />
+    <ClInclude Include="People.h" />
+    <ClInclude Include="Schedule.h" />
+    <ClInclude Include="SearchQuery.h" />
+    <ClInclude Include="ShellViewModel.h" />
+    <ClInclude Include="User.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Assets">
+      <UniqueIdentifier>{e48dc53e-40b1-40cb-970a-f89935452892}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="PropertySheet.props" />
+    <None Include="packages.config" />
+    <None Include="ContosoSeatBooking\ContosoSeatBooking.dll" />
+    <None Include="ContosoSeatBooking\libjpeg-9.dll" />
+    <None Include="ContosoSeatBooking\libpng16-16.dll" />
+    <None Include="ContosoSeatBooking\libtiff-5.dll" />
+    <None Include="ContosoSeatBooking\libwebp-7.dll" />
+    <None Include="ContosoSeatBooking\SDL2.dll" />
+    <None Include="ContosoSeatBooking\SDL2_image.dll" />
+    <None Include="ContosoSeatBooking\zlib1.dll" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="readme.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Manifest Include="app.manifest" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="ContosoAirlinePOSCpp.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="..\..\..\ContosoAirlinePOSCs\ContosoAirlinePOSCs\ContosoAirlinePOSCs\Assets\Barcode.png" />
+    <Image Include="..\..\..\ContosoAirlinePOSCs\ContosoAirlinePOSCs\ContosoAirlinePOSCs\Assets\HeaderBackground.png" />
+    <Image Include="..\..\..\ContosoAirlinePOSCs\ContosoAirlinePOSCs\ContosoAirlinePOSCs\Assets\QRCode.png" />
+    <Image Include="..\..\..\ContosoAirlinePOSCs\ContosoAirlinePOSCs\ContosoAirlinePOSCs\Assets\Search.png" />
+    <Image Include="Assets\Barcode.png" />
+    <Image Include="Assets\BookFlightCover.jpg" />
+    <Image Include="Assets\ContosoAirLogo.png" />
+    <Image Include="Assets\HeaderBackground.png" />
+    <Image Include="Assets\LoginBackground.png" />
+    <Image Include="Assets\QRCode.png" />
+    <Image Include="Assets\Search.png" />
+    <Image Include="ContosoSeatBooking\BookFlightCover.png" />
+    <Image Include="ContosoSeatBooking\EmptyImg.png" />
+    <Image Include="ContosoSeatBooking\img0.png" />
+    <Image Include="ContosoSeatBooking\NextButton.png" />
+    <Image Include="ContosoSeatBooking\OccupiedImg.png" />
+    <Image Include="ContosoSeatBooking\SeatLegends.png" />
+    <Image Include="ContosoSeatBooking\SelectedImg.png" />
+  </ItemGroup>
+</Project>

@@ -1,0 +1,10 @@
+import "Airport.idl";
+namespace ContosoAirlinePOSCpp
+{
+	runtimeclass FrequencyStats : Microsoft.UI.Xaml.Data.INotifyPropertyChanged
+	{
+		FrequencyStats();
+		Airport FlightDetails{ get; };
+		Int32 BookingCount;
+	}
+}

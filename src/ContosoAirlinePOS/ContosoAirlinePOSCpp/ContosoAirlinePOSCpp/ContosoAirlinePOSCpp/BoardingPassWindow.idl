@@ -1,0 +1,13 @@
+import "Flight.idl";
+
+namespace ContosoAirlinePOSCpp
+{
+    [default_interface]
+    runtimeclass BoardingPassWindow : Microsoft.UI.Xaml.Controls.Page
+    {
+        BoardingPassWindow();    
+        String DepartureDate{ get; };
+        String FlightCode{ get; };
+        Flight SelectedFlight{ get; };
+    }
+}

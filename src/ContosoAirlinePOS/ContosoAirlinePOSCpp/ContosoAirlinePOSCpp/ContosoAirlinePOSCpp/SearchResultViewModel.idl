@@ -1,0 +1,14 @@
+import "SearchQuery.idl";
+import "Flight.idl";
+namespace ContosoAirlinePOSCpp
+{
+    [default_interface]
+    runtimeclass SearchResultViewModel : Microsoft.UI.Xaml.Data.INotifyPropertyChanged
+    {
+        SearchResultViewModel();        
+        SearchQuery Query;
+        Windows.Foundation.Collections.IObservableVector<Flight> SearchResults;
+        void BookFlight(Flight selectedFlight);
+    }
+}
+

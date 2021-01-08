@@ -1,0 +1,10 @@
+namespace ContosoAirlinePOSCpp
+{
+    [default_interface]
+    runtimeclass MenuItem : Microsoft.UI.Xaml.Data.INotifyPropertyChanged
+    {
+        String Name;
+        String Icon;
+        String ViewModelType;
+    }
+}

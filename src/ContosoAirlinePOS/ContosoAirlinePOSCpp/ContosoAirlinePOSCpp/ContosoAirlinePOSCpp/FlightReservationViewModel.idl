@@ -1,0 +1,15 @@
+import "SearchQuery.idl";
+import "People.idl";
+import "Flight.idl";
+
+namespace ContosoAirlinePOSCpp
+{
+    [default_interface]
+    runtimeclass FlightReservationViewModel : Microsoft.UI.Xaml.Data.INotifyPropertyChanged
+    {
+        SearchQuery QueryObject;
+        Flight SelectedFlight;
+        Windows.Foundation.Collections.IObservableVector<People> Passengers;
+        Double InvoiceAmount;
+    }
+}

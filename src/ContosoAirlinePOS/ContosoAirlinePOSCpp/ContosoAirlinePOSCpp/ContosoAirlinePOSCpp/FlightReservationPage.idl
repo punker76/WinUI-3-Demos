@@ -1,0 +1,11 @@
+import "FlightReservationViewModel.idl";
+
+namespace ContosoAirlinePOSCpp
+{
+    [default_interface]
+    runtimeclass FlightReservationPage : Microsoft.UI.Xaml.Controls.Page
+    {
+        FlightReservationPage();
+        FlightReservationViewModel ViewModel{ get; };
+    }
+}

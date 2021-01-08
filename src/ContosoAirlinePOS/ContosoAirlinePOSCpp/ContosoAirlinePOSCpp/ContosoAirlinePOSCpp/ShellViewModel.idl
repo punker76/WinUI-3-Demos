@@ -1,0 +1,10 @@
+import "MenuItem.idl";
+namespace ContosoAirlinePOSCpp
+{
+    [default_interface]
+    runtimeclass ShellViewModel : Microsoft.UI.Xaml.Data.INotifyPropertyChanged
+    {
+        ShellViewModel();
+        Windows.Foundation.Collections.IObservableVector<IInspectable> MenuItems{ get; };
+    }
+}

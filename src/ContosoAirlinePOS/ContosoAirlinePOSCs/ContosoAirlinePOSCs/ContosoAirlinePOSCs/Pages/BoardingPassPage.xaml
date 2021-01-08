@@ -1,0 +1,411 @@
+﻿<Page
+    x:Class="ContosoAirlinePOSCs.Pages.BoardingPassPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:ContosoAirlinePOSCs.Pages"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <ScrollViewer VerticalScrollMode="Enabled">
+        <Grid Background="{ThemeResource SystemChromeMediumLowColor}">
+            <Image MaxHeight="140" VerticalAlignment="Top" Stretch="UniformToFill" Source="/Assets/HeaderBackground.png" />
+            <Grid Padding="24" ColumnSpacing="24" RowSpacing="22">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="2*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <TextBlock TextWrapping="Wrap" FontWeight="SemiBold" FontSize="20" Foreground="White" Text="Boarding Pass" />
+                <Grid Grid.Row="1" Background="White">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="5*" />
+                        <ColumnDefinition Width="2*" />
+                    </Grid.ColumnDefinitions>
+                    <Image Margin="12" MaxHeight="200" Source="/Assets/Barcode.png"/>
+                    <Grid Grid.Column="1" Margin="14,0,0,0" Padding="0,14,0,14" RowSpacing="4" BorderThickness="1,0,0,0" BorderBrush="#FFEDEDED">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" MinHeight="74" />
+                            <RowDefinition Height="Auto" MinHeight="74" />
+                            <RowDefinition Height="Auto" MinHeight="74" />
+                            <RowDefinition Height="Auto" MinHeight="74" />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <Grid VerticalAlignment="Center" Margin="14,0,0,0">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
+                            <TextBlock TextWrapping="Wrap" FontSize="12" FontWeight="Light" Foreground="Gray" Text="Name of Passenger" />
+                            <TextBlock TextWrapping="Wrap" FontSize="14" FontWeight="Medium" Foreground="#FF0073CF" Text="John Doe" Grid.Row="1" />
+                        </Grid>
+                        <Grid Grid.Column="1" VerticalAlignment="Center">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
+                            <TextBlock TextWrapping="Wrap" FontSize="12" FontWeight="Light" Foreground="Gray" Text="Flight No." />
+                            <TextBlock TextWrapping="Wrap" FontSize="14" FontWeight="Medium" Foreground="Black" Text="{Binding SelectedFlight.FlightCode}" Grid.Row="1" />
+                        </Grid>
+                        <Grid Grid.Column="2" VerticalAlignment="Center">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
+                            <TextBlock TextWrapping="Wrap" FontSize="12" FontWeight="Light" Foreground="Gray" Text="Class" />
+                            <TextBlock TextWrapping="Wrap" FontSize="14" FontWeight="Medium" Foreground="Black" Text="Economy" Grid.Row="1" />
+                        </Grid>
+                        <Grid Grid.Column="0" Grid.Row="1" VerticalAlignment="Stretch" ColumnSpacing="12" Grid.ColumnSpan="2" Background="#FF0073CF">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" MinHeight="37" />
+                                <RowDefinition Height="Auto" MinHeight="37" />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <TextBlock TextWrapping="Wrap" FontSize="20" FontWeight="Light" Foreground="WhiteSmoke" FontFamily="Segoe MDL2 Assets" Text="&#xE709;" Grid.RowSpan="2" Margin="16,0,0,0" VerticalAlignment="Center" />
+                            <Grid Grid.Column="1" ColumnSpacing="4" VerticalAlignment="Bottom">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto" />
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+                                <TextBlock TextWrapping="Wrap" FontSize="12" FontWeight="Light" Foreground="WhiteSmoke" Text="From" />
+                                <TextBlock TextWrapping="Wrap" FontSize="12" FontWeight="Medium" Foreground="White" Grid.Column="1">
+                                    <Run Text="{Binding SelectedFlight.Source.CityName}" />
+                                    <Run Text="("/>
+                                    <Run Text="{Binding SelectedFlight.Source.AirportCode}" />
+                                    <Run Text=")" />
+                                </TextBlock>
+                            </Grid>
+                            <Grid Grid.Column="1" Grid.Row="1" ColumnSpacing="4" VerticalAlignment="Top">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto" />
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+                                <TextBlock TextWrapping="Wrap" FontSize="12" FontWeight="Light" Foreground="WhiteSmoke" Text="To" />
+                                <TextBlock TextWrapping="Wrap" FontSize="12" FontWeight="Medium" Foreground="White" Grid.Column="1" >
+                                    <Run Text="{Binding SelectedFlight.Destination.CityName}" />
+                                    <Run Text="("/>
+                                    <Run Text="{Binding SelectedFlight.Destination.AirportCode}" />
+                                    <Run Text=")" />
+                                </TextBlock>
+                            </Grid>
+                        </Grid>
+                        <Grid Grid.Row="1" Grid.Column="2" Background="#FF0073CF">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" MinHeight="37" />
+                                <RowDefinition Height="Auto" MinHeight="37" />
+                            </Grid.RowDefinitions>
+                            <TextBlock TextWrapping="Wrap" FontSize="12" FontWeight="Light" Foreground="White" VerticalAlignment="Bottom" Text="Booking ID" />
+                            <TextBlock TextWrapping="Wrap" FontSize="14" FontWeight="Medium" Foreground="White" VerticalAlignment="Top" Text="BK65478" Grid.Row="1" />
+                        </Grid>
+                        <Grid Grid.Column="0" Grid.Row="2" VerticalAlignment="Center" Margin="14,0,0,0">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
+                            <TextBlock TextWrapping="Wrap" FontSize="12" FontWeight="Light" Foreground="Gray" Text="Date" />
+                            <TextBlock TextWrapping="Wrap" FontSize="14" FontWeight="Medium" Foreground="Black" Grid.Row="1">
+                                    <Run Text="{Binding SelectedFlight.Departure.Month}" />
+                                    <Run Text="/" />
+                                    <Run Text="{Binding SelectedFlight.Departure.Day}" />
+                                    <Run Text="/" />
+                                    <Run Text="{Binding SelectedFlight.Departure.Year}" />
+                            </TextBlock>
+                        </Grid>
+                        <Grid Grid.Column="1" Grid.Row="2" VerticalAlignment="Center">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
+                            <TextBlock TextWrapping="Wrap" FontSize="12" FontWeight="Light" Foreground="Gray" Text="Luggage" />
+                            <TextBlock TextWrapping="Wrap" FontSize="14" FontWeight="Medium" Foreground="Black" Text="30 Kg + 7 Kg" Grid.Row="1" />
+                        </Grid>
+                        <Grid Grid.Column="2" Grid.Row="2" VerticalAlignment="Center">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
+                            <TextBlock TextWrapping="Wrap" FontSize="12" FontWeight="Light" Foreground="Gray" Text="Seat" />
+                            <TextBlock TextWrapping="Wrap" FontSize="14" FontWeight="Medium" Foreground="Black" Text="A5" Grid.Row="1" />
+                        </Grid>
+                        <Grid Grid.Column="0" Grid.Row="3" VerticalAlignment="Center" Margin="14,0,0,0">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
+                            <TextBlock TextWrapping="Wrap" FontSize="12" FontWeight="Light" Foreground="Gray" Text="Gate" />
+                            <TextBlock TextWrapping="Wrap" FontSize="14" FontWeight="Medium" Foreground="Black" Text="H22" Grid.Row="1" />
+                        </Grid>
+                        <Grid Grid.Column="1" Grid.Row="3" VerticalAlignment="Center">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
+                            <TextBlock TextWrapping="Wrap" FontSize="12" FontWeight="Light" Foreground="Gray" Text="Boarding Time" />
+                            <TextBlock TextWrapping="Wrap" FontSize="14" FontWeight="Medium" Foreground="Black" Text="07:45" Grid.Row="1" />
+                        </Grid>
+                        <Grid Grid.Column="2" Grid.Row="3" VerticalAlignment="Center">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
+                            <TextBlock TextWrapping="Wrap" FontSize="12" FontWeight="Light" Foreground="Gray" Text="Frequent Flyer" />
+                            <TextBlock TextWrapping="Wrap" FontSize="14" FontWeight="Medium" Foreground="Black" Text="12446685" Grid.Row="1" />
+                        </Grid>
+                    </Grid>
+                    <Grid Grid.Column="2" Padding="18,14,18,14" Background="#FF0073CF">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" MinHeight="74" />
+                            <RowDefinition Height="Auto" MinHeight="74" />
+                            <RowDefinition Height="Auto" MinHeight="74" />
+                            <RowDefinition Height="Auto" MinHeight="74" />
+                        </Grid.RowDefinitions>
+                        <Grid VerticalAlignment="Center">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
+                            <TextBlock TextWrapping="Wrap" FontSize="12" FontWeight="Light" Foreground="WhiteSmoke" Text="Name of Passenger" />
+                            <TextBlock TextWrapping="Wrap" FontSize="14" FontWeight="Medium" Foreground="White" Text="John Doe" Grid.Row="1" />
+                        </Grid>
+                        <Grid Grid.Row="1" VerticalAlignment="Center">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
+                            <Grid VerticalAlignment="Center" ColumnSpacing="4">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto" />
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+                                <TextBlock TextWrapping="Wrap" FontSize="12" FontWeight="Light" Foreground="WhiteSmoke" Text="From" />
+                                <TextBlock TextWrapping="Wrap" FontSize="12" FontWeight="Medium" Foreground="White" Grid.Column="1">
+                                    <Run Text="{Binding SelectedFlight.Source.CityName}" />
+                                    <Run Text="("/>
+                                    <Run Text="{Binding SelectedFlight.Source.AirportCode}" />
+                                    <Run Text=")" />
+                                </TextBlock>
+                            </Grid>
+                            <Grid Grid.Row="1" VerticalAlignment="Center" ColumnSpacing="4">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto" />
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+                                <TextBlock TextWrapping="Wrap" FontSize="12" FontWeight="Light" Foreground="WhiteSmoke" Text="To" />
+                                <TextBlock TextWrapping="Wrap" FontSize="12" FontWeight="Medium" Foreground="White" Grid.Column="1">
+                                    <Run Text="{Binding SelectedFlight.Destination.CityName}" />
+                                    <Run Text="("/>
+                                    <Run Text="{Binding SelectedFlight.Destination.AirportCode}" />
+                                    <Run Text=")" />
+                                </TextBlock>
+                            </Grid>
+                        </Grid>
+                        <Grid Grid.Row="2" VerticalAlignment="Center" ColumnSpacing="8">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="1*" />
+                                <ColumnDefinition Width="2*" />
+                            </Grid.ColumnDefinitions>
+                            <Grid BorderThickness="0,0,0.5,0" BorderBrush="#FFBAE0FF" VerticalAlignment="Center">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                </Grid.RowDefinitions>
+                                <TextBlock TextWrapping="Wrap" FontSize="12" FontWeight="Light" Foreground="WhiteSmoke" Text="Seat" />
+                                <TextBlock TextWrapping="Wrap" FontSize="14" FontWeight="Medium" Foreground="White" Text="A5" Grid.Row="1" />
+                            </Grid>
+                            <Grid Grid.Column="1" VerticalAlignment="Center">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                </Grid.RowDefinitions>
+                                <TextBlock TextWrapping="Wrap" FontSize="12" FontWeight="Light" Foreground="WhiteSmoke" Text="Date" />
+                                <TextBlock TextWrapping="Wrap" FontSize="14" FontWeight="Medium" Foreground="White" Grid.Row="1">
+                                    <Run Text="{Binding SelectedFlight.Departure.Month}" />
+                                    <Run Text="/" />
+                                    <Run Text="{Binding SelectedFlight.Departure.Day}" />
+                                    <Run Text="/" />
+                                    <Run Text="{Binding SelectedFlight.Departure.Year}" />
+                                </TextBlock>
+                            </Grid>
+                        </Grid>
+                        <Grid Grid.Row="3" VerticalAlignment="Center" ColumnSpacing="8">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="1*" />
+                                <ColumnDefinition Width="2*" />
+                            </Grid.ColumnDefinitions>
+                            <Grid BorderThickness="0,0,0.5,0" BorderBrush="#FFBAE0FF" VerticalAlignment="Center">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                </Grid.RowDefinitions>
+                                <TextBlock TextWrapping="Wrap" FontSize="12" FontWeight="Light" Foreground="WhiteSmoke" Text="Gate" />
+                                <TextBlock TextWrapping="Wrap" FontSize="14" FontWeight="Medium" Foreground="White" Text="H22" Grid.Row="1" />
+                            </Grid>
+                            <Grid Grid.Column="1" VerticalAlignment="Center">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                </Grid.RowDefinitions>
+                                <TextBlock TextWrapping="Wrap" FontSize="12" FontWeight="Light" Foreground="WhiteSmoke" Text="Boarding Time" />
+                                <TextBlock TextWrapping="Wrap" FontSize="14" FontWeight="Medium" Foreground="White" Text="07:45" Grid.Row="1" />
+                            </Grid>
+                        </Grid>
+                    </Grid>
+                </Grid>
+                <Grid Grid.Row="2" ColumnSpacing="12">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <TextBox Header="Send Boarding Pass" PlaceholderText="Enter Email ID" MinWidth="200" Background="White" Foreground="Black" CornerRadius="0" />
+                    <Button Height="32" Width="140" VerticalAlignment="Bottom" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Background="Brown" CornerRadius="0" Grid.Column="1">
+                        <TextBlock TextWrapping="Wrap" FontSize="12" FontWeight="Medium" Foreground="White" Text="SEND" />
+                    </Button>
+                    <Button Height="32" Width="140" VerticalAlignment="Bottom" HorizontalAlignment="Right" Background="Transparent" BorderThickness="1" BorderBrush="{ThemeResource SystemBaseHighColor}" CornerRadius="0" Grid.Column="2">
+                        <TextBlock TextWrapping="Wrap" FontSize="12" FontWeight="Medium" Foreground="{ThemeResource SystemBaseHighColor}" Text="PRINT PASS" />
+                    </Button>
+                </Grid>
+                <Grid Grid.Row="1" Grid.Column="1" Grid.RowSpan="2" MaxWidth="350">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+                    <Grid Background="White" Padding="18" RowSpacing="14" ColumnSpacing="16">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <Grid Grid.ColumnSpan="3" ColumnSpacing="4">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="Auto" />
+                            </Grid.ColumnDefinitions>
+                            <Image Width="18" Height="18" Source="/Assets/ContosoAirLogo.png"/>
+                            <TextBlock TextWrapping="Wrap" FontWeight="SemiBold" FontSize="14" Foreground="#FF0073CF" Text="CONTOSO" Grid.Column="1" />
+                            <TextBlock TextWrapping="Wrap" FontWeight="Light" FontSize="14" Foreground="Black" Text="AIR" Grid.Column="2" />
+                        </Grid>
+                        <Grid Grid.Row="1" Grid.ColumnSpan="3">
+                            <Rectangle HorizontalAlignment="Stretch" Height="180" Fill="#FFEDEDED" />
+                            <Image Height="120" Width="120" HorizontalAlignment="Center" VerticalAlignment="Center" Source="/Assets/QRCode.png" />
+                        </Grid>
+                        <Grid Grid.Row="2" Grid.Column="0">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
+                            <TextBlock TextWrapping="Wrap" FontSize="12" FontWeight="Light" Foreground="Gray" Text="Name" />
+                            <TextBlock TextWrapping="Wrap" FontSize="14" FontWeight="Medium" Foreground="#FF0073CF" Text="John Doe" Grid.Row="1" />
+                        </Grid>
+                        <Grid Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2" HorizontalAlignment="Right">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
+                            <Grid VerticalAlignment="Center" ColumnSpacing="4">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto" />
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+                                <TextBlock TextWrapping="Wrap" FontSize="12" FontWeight="Light" Foreground="Gray" Text="From: " />
+                                <TextBlock TextWrapping="Wrap" FontSize="12" FontWeight="Medium" Foreground="Black" Grid.Column="1">
+                                    <Run Text="{Binding SelectedFlight.Source.CityName}"/>
+                                    <Run Text=" ("/>
+                                    <Run Text="{Binding SelectedFlight.Source.AirportCode}"/>
+                                    <Run Text=")"/>
+                                </TextBlock>
+                            </Grid>
+                            <Grid Grid.Row="1" VerticalAlignment="Center" ColumnSpacing="4">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto" />
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+                                <TextBlock TextWrapping="Wrap" FontSize="12" FontWeight="Light" Foreground="Gray" Text="To:" />
+                                <TextBlock TextWrapping="Wrap" FontSize="12" FontWeight="Medium" Foreground="Black" Grid.Column="1">
+                                    <Run Text="{Binding SelectedFlight.Destination.CityName}" />
+                                    <Run Text="("/>
+                                    <Run Text="{Binding SelectedFlight.Destination.AirportCode}" />
+                                    <Run Text=")" />
+                                </TextBlock>
+                            </Grid>
+                        </Grid>
+                        <Grid Grid.Row="3" Grid.Column="0">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
+                            <TextBlock TextWrapping="Wrap" FontSize="12" FontWeight="Light" Foreground="Gray" Text="Seat" />
+                            <TextBlock TextWrapping="Wrap" FontSize="14" FontWeight="Medium" Foreground="Black" Text="A5" Grid.Row="1" />
+                        </Grid>
+                        <Grid Grid.Row="3" Grid.Column="1">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
+                            <TextBlock TextWrapping="Wrap" FontSize="12" FontWeight="Light" Foreground="Gray" Text="Gate" />
+                            <TextBlock TextWrapping="Wrap" FontSize="14" FontWeight="Medium" Foreground="Black" Text="H22" Grid.Row="1" />
+                        </Grid>
+                        <Grid Grid.Row="3" Grid.Column="2">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
+                            <TextBlock TextWrapping="Wrap" FontSize="12" FontWeight="Light" Foreground="Gray" Text="Date" />
+                            <TextBlock TextWrapping="Wrap" FontSize="14" FontWeight="Medium" Foreground="Black" Grid.Row="1">
+                                    <Run Text="{Binding SelectedFlight.Departure.Month}" />
+                                    <Run Text="/" />
+                                    <Run Text="{Binding SelectedFlight.Departure.Day}" />
+                                    <Run Text="/" />
+                                    <Run Text="{Binding SelectedFlight.Departure.Year}" />
+                            </TextBlock>
+                        </Grid>
+                        <Grid Grid.Row="4" Grid.Column="0">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
+                            <TextBlock TextWrapping="Wrap" FontSize="12" FontWeight="Light" Foreground="Gray" Text="Boarding Time" />
+                            <TextBlock TextWrapping="Wrap" FontSize="14" FontWeight="Medium" Foreground="Black" Text="07:45" Grid.Row="1" />
+                        </Grid>
+                        <Grid Grid.Row="4" Grid.Column="1">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
+                            <TextBlock TextWrapping="Wrap" FontSize="12" FontWeight="Light" Foreground="Gray" Text="Booking ID" />
+                            <TextBlock TextWrapping="Wrap" FontSize="14" FontWeight="Medium" Foreground="Black" Text="BK65478" Grid.Row="1" />
+                        </Grid>
+                        <Grid Grid.Row="4" Grid.Column="2">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
+                            <TextBlock TextWrapping="Wrap" FontSize="12" FontWeight="Light" Foreground="Gray" Text="Frequent Flyer" />
+                            <TextBlock TextWrapping="Wrap" FontSize="14" FontWeight="Medium" Foreground="Black" Text="12446685" Grid.Row="1" />
+                        </Grid>
+                    </Grid>
+                </Grid>
+            </Grid>
+        </Grid>
+    </ScrollViewer>
+</Page>

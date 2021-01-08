@@ -1,0 +1,15 @@
+namespace ContosoAirlinePOSCpp
+{
+    [default_interface]
+    runtimeclass BookingResult : Microsoft.UI.Xaml.Data.INotifyPropertyChanged
+    {
+        BookingResult();
+        Int32 SerialNumber;
+        Int32 BookingID;
+        String CustomerName;
+        String ContactNumber;
+        String FlightNumber;
+        String Source;
+        String Destination;
+    }
+}

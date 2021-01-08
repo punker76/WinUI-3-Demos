@@ -1,0 +1,243 @@
+﻿<Page
+    x:Class="ContosoAirlinePOSCpp.SearchPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:ContosoAirlinePOSCpp"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    
+    <Page.Resources>
+        <DataTemplate x:Name="SearchItem" x:DataType="local:BookingResult">
+            <Grid Height="60"
+                      Background="White">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+                <StackPanel Grid.Column="0" 
+                                VerticalAlignment="Center"
+                                Margin="16,0,16,0">
+                    <TextBlock Text="{x:Bind SerialNumber}"
+                                   TextAlignment="Left"
+                                   Foreground="Black"/>
+                </StackPanel>
+
+                <StackPanel Grid.Column="1" VerticalAlignment="Center">
+                    <TextBlock Text="{x:Bind CustomerName}"
+                                   FontWeight="Bold"
+                                   TextAlignment="Left"
+                                   Foreground="Black"/>
+                </StackPanel>
+
+                <StackPanel Grid.Column="2" VerticalAlignment="Center">
+                    <TextBlock Text="{x:Bind ContactNumber}"
+                                   TextAlignment="Left"
+                                   Foreground="Black"/>
+                </StackPanel>
+
+
+                <StackPanel Grid.Column="3" VerticalAlignment="Center">
+                    <TextBlock Text="{x:Bind BookingID}"
+                                   TextAlignment="Left"
+                                   Foreground="Black"/>
+                </StackPanel>
+
+
+                <StackPanel Grid.Column="4" VerticalAlignment="Center">
+                    <TextBlock Text="{x:Bind FlightNumber}"
+                                   TextAlignment="Left"
+                                   Foreground="Black"/>
+                </StackPanel>
+
+                <StackPanel Grid.Column="5" VerticalAlignment="Center">
+                    <TextBlock Text="{x:Bind Destination}"
+                                   TextAlignment="Left"
+                                   Foreground="Black"/>
+                </StackPanel>
+
+                <StackPanel Grid.Column="6" VerticalAlignment="Center">
+                    <TextBlock Text="{x:Bind Source}"
+                                   TextAlignment="Left"
+                                   Foreground="Black"/>
+                </StackPanel>
+            </Grid>
+        </DataTemplate>
+    </Page.Resources>
+    <ScrollViewer>
+        <Grid>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="2*"/>
+                    <RowDefinition Height="7*"/>
+                </Grid.RowDefinitions>
+                <Grid Row="0">
+                    <Grid.Background>
+                        <ImageBrush ImageSource="Assets/HeaderBackground.png" Stretch="UniformToFill"/>
+                    </Grid.Background>
+                </Grid>
+
+                <Grid Row="1" Background="{ThemeResource SystemChromeMediumLowColor}">
+
+                </Grid>
+            </Grid>
+
+            <Grid Padding="0,14,0,0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="2*"/>
+                    <RowDefinition Height="6*"/>
+                </Grid.RowDefinitions>
+                <Grid Grid.Row="0">
+                    <Grid.Resources>
+                        <ResourceDictionary>
+                            <ResourceDictionary.ThemeDictionaries>
+                                <ResourceDictionary x:Key="Light">
+                                    <SolidColorBrush x:Key="ButtonBackgroundPressed" Color="Transparent"/>
+                                </ResourceDictionary>
+                                <ResourceDictionary x:Key="Dark">
+                                    <SolidColorBrush x:Key="ButtonBackgroundPressed" Color="Transparent"/>
+                                </ResourceDictionary>
+                            </ResourceDictionary.ThemeDictionaries>
+                        </ResourceDictionary>
+                    </Grid.Resources>
+                    <StackPanel HorizontalAlignment="Right"
+                            Margin="32,8,32,8"
+                            Width="200"
+                            VerticalAlignment="Center">
+                        <Button Content="Advanced Search"
+                            HorizontalAlignment="Right"
+                            Background="{ThemeResource SystemBaseLowColor}"/>
+                    </StackPanel>
+                </Grid>
+                <Grid Grid.Row="1"
+                  Margin="32,16,32,16"
+                  Padding="16"
+                  Background="{ThemeResource SystemChromeMediumColor}">
+                    <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                        <StackPanel MinWidth="180"
+                                MaxWidth="220"
+                                VerticalAlignment="Bottom">
+                            <TextBox
+                                Margin="16"
+                                Header="Flight Number"
+                                PlaceholderText="Enter Flight Number"
+                                VerticalContentAlignment="Center"/>
+                        </StackPanel>
+
+                        <StackPanel MinWidth="180"
+                                MaxWidth="220"
+                                VerticalAlignment="Bottom">
+                            <TextBox
+                                Margin="16"
+                                Header="Destination"
+                                PlaceholderText="Enter Destination"
+                                VerticalContentAlignment="Center"/>
+                        </StackPanel>
+
+                        <StackPanel MinWidth="180"
+                                MaxWidth="220"
+                                VerticalAlignment="Bottom">
+                            <TextBox
+                                Margin="16"
+                                Header="Last Name"
+                                PlaceholderText="Enter Last Name"
+                                VerticalContentAlignment="Center"/>
+                        </StackPanel>
+
+                        <StackPanel Width="220" VerticalAlignment="Bottom">
+                            <Button
+                                Margin="16"
+                                Content="Apply"
+                                Width="100"
+                                Background="{ThemeResource SystemAccentColor}"/>
+                        </StackPanel>
+                    </StackPanel>
+                </Grid>
+                <StackPanel Grid.Row="2"
+                  Margin="32,16,32,16">
+                    <Grid Height="60" Background="{ThemeResource SystemAccentColor}">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                        </Grid.ColumnDefinitions>
+                        <StackPanel Grid.Column="0" 
+                                VerticalAlignment="Center"
+                                Margin="16,0,16,0">
+                            <TextBlock Text="Sr. No."
+                                   FontWeight="Bold"
+                                   TextAlignment="Left"
+                                   Foreground="White"/>
+                        </StackPanel>
+
+                        <StackPanel Grid.Column="1" VerticalAlignment="Center">
+                            <TextBlock Text="Customer Name"
+                                   TextAlignment="Left"
+                                   FontWeight="Bold"
+                                   Foreground="White"/>
+                        </StackPanel>
+
+                        <StackPanel Grid.Column="2" VerticalAlignment="Center">
+                            <TextBlock Text="Contact Number"
+                                   TextAlignment="Left"
+                                   FontWeight="Bold"
+                                   Foreground="White"/>
+                        </StackPanel>
+
+
+                        <StackPanel Grid.Column="3" VerticalAlignment="Center">
+                            <TextBlock Text="Booking ID"
+                                   TextAlignment="Left"
+                                   FontWeight="Bold"
+                                   Foreground="White"/>
+                        </StackPanel>
+
+
+                        <StackPanel Grid.Column="4" VerticalAlignment="Center">
+                            <TextBlock Text="Flight No."
+                                   TextAlignment="Left"
+                                   FontWeight="Bold"
+                                   Foreground="White"/>
+                        </StackPanel>
+
+                        <StackPanel Grid.Column="5" VerticalAlignment="Center">
+                            <TextBlock Text="Destination"
+                                   TextAlignment="Left"
+                                   FontWeight="Bold"
+                                   Foreground="White"/>
+                        </StackPanel>
+
+                        <StackPanel Grid.Column="6" VerticalAlignment="Center">
+                            <TextBlock Text="Source"
+                                   TextAlignment="Left"
+                                   FontWeight="Bold"
+                                   Foreground="White"/>
+                        </StackPanel>
+                    </Grid>
+
+                    <ListView 
+                    x:Name="ListOfSearchResults"
+                    ItemsSource="{x:Bind ViewModel.SearchResults}"
+                    ItemTemplate="{StaticResource SearchItem}">
+                        <ListView.ItemContainerStyle>
+                            <Style TargetType="ListViewItem">
+                                <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+                            </Style>
+                        </ListView.ItemContainerStyle>
+                    </ListView>
+                </StackPanel>
+            </Grid>
+        </Grid>
+    </ScrollViewer>
+</Page>

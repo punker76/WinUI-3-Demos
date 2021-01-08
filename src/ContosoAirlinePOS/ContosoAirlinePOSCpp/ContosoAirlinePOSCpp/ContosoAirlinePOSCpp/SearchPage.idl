@@ -1,0 +1,10 @@
+import "SearchViewModel.idl";
+namespace ContosoAirlinePOSCpp
+{
+    [default_interface]
+    runtimeclass SearchPage : Microsoft.UI.Xaml.Controls.Page
+    {
+        SearchPage();
+        SearchViewModel ViewModel{ get; };
+    }
+}

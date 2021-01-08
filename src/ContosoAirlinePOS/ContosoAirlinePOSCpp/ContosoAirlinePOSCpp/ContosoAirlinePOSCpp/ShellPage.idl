@@ -1,0 +1,10 @@
+import "ShellViewModel.idl";
+namespace ContosoAirlinePOSCpp
+{
+    [default_interface]
+    runtimeclass ShellPage : Microsoft.UI.Xaml.Controls.Page
+    {
+        ShellPage();
+        ShellViewModel ViewModel{ get; };
+    }
+}
