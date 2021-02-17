@@ -30,8 +30,7 @@ namespace DemoBuildCs
             var windowNative = m_window.As<IWindowNative>();
             m_windowHandle = windowNative.WindowHandle;
             m_window.Title = "Folder Inspector (.NET 5 Desktop WinUI 3)";
-            m_window.Activate();
-
+        
             // The Window object doesn't have Width and Height properties in WInUI 3 Desktop yet.
             // To set the Width and Height, you can use the Win32 API SetWindowPos.
             // Note, you should apply the DPI scale factor if you are thinking of dpi instead of pixels.

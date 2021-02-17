@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="VisualSorting.SortingAlgorithm.BubbleSort" Collapsed="true">
+    <Position X="7.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAACAAAAAAAAAA=</HashCode>
+      <FileName>SortingAlgorithm\BubbleSort.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="VisualSorting.SortingAlgorithm.InsertionSort" Collapsed="true">
+    <Position X="0.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAACAAAAAAAAAA=</HashCode>
+      <FileName>SortingAlgorithm\InsertionSort.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="VisualSorting.SortingAlgorithm.MergeSort" Collapsed="true">
+    <Position X="9.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAQAAAAAAAAAAAAAAQAAAAAAAAAQAACAAAAAAAAAA=</HashCode>
+      <FileName>SortingAlgorithm\MergeSort.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="VisualSorting.SortingAlgorithm.QuickSort" Collapsed="true">
+    <Position X="2.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAEAAAAAAAAEAAAAAQAAAAAAAAAAAACAAAAAAAAAA=</HashCode>
+      <FileName>SortingAlgorithm\QuickSort.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="VisualSorting.SortingAlgorithm.SelectionSort" Collapsed="true">
+    <Position X="5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAACAAAAAAAAAA=</HashCode>
+      <FileName>SortingAlgorithm\SelectionSort.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="VisualSorting.SortingAlgorithm.SortAlgorithmBase" Collapsed="true">
+    <Position X="5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAgAAAAAAAAAAAEAQAQAAAAAAAAAACgAAAAAAAAA=</HashCode>
+      <FileName>SortingAlgorithm\SortAlgorithmBase.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Interface Name="VisualSorting.SortingAlgorithm.ISortStrategy">
+    <Position X="12" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAACgAAAAAAAAA=</HashCode>
+      <FileName>SortingAlgorithm\ISortStrategy.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

@@ -173,6 +173,8 @@ namespace DemoBuildCs
   
             PInvoke.User32.ShowWindow(hwnd,
                  PInvoke.User32.WindowShowStyle.SW_MINIMIZE);
+                     
+
         }
 
         void OnWindowMaximize(object sender, RoutedEventArgs e)

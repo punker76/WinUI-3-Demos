@@ -10,8 +10,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.VCRTForwarders.140" Version="1.0.7" />
-    <PackageReference Include="Microsoft.WinUI" Version="3.0.0-preview3.201113.0" />
+    <PackageReference Include="Microsoft.WinUI" Version="3.0.0-preview4.210126.0-CI" />
 	<PackageReference Include="PInvoke.User32" Version="0.7.78" />
     <Manifest Include="$(ApplicationManifest)" />
   </ItemGroup>
